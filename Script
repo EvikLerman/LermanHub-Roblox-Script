@@ -7,22 +7,69 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 2 | Scripts: 0 | Modules: 0 | Tags: 0
+-- Instances: 4 | Scripts: 1 | Modules: 0 | Tags: 0
 local G2L = {};
 
--- StarterGui.ScreenGui
+-- StarterGui.MainGameUI
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[MainGameUI]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
--- StarterGui.ScreenGui.Frame
-G2L["2"] = Instance.new("Frame", G2L["1"]);
+-- StarterGui.MainGameUI.AC
+G2L["2"] = Instance.new("ImageLabel", G2L["1"]);
 G2L["2"]["BorderSizePixel"] = 0;
 G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["2"]["Size"] = UDim2.new(0, 100, 0, 100);
-G2L["2"]["Position"] = UDim2.new(0.43912, 0, 0.41319, 0);
+G2L["2"]["Image"] = [[rbxassetid://14745368846]];
+G2L["2"]["Size"] = UDim2.new(0.99838, 0, 0.99933, 0);
+G2L["2"]["Visible"] = false;
 G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Name"] = [[AC]];
 
 
+-- StarterGui.MainGameUI.AC.LocalScript
+G2L["3"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.MainGameUI.AC.LocalScript.Sound
+G2L["4"] = Instance.new("Sound", G2L["3"]);
+G2L["4"]["Looped"] = true;
+G2L["4"]["RollOffMode"] = Enum.RollOffMode.InverseTapered;
+G2L["4"]["SoundId"] = [[rbxassetid://18564431123]];
+
+
+-- StarterGui.MainGameUI.AC.LocalScript
+local function C_3()
+local script = G2L["3"];
+	local ui = script.Parent
+	local player = game.Players.LocalPlayer
+	local playern = player.Name
+	local playerm = game.Workspace:FindFirstChild(playern)
+	local UserInputService = game:GetService("UserInputService")
+	local StarterGui = game:GetService('StarterGui')
+	
+	if playerm and playerm:FindFirstChild("Humanoid") then
+		local humanoid = playerm.Humanoid
+	
+		local function checkWalkSpeed()
+					ui.Visible = true
+					script.Sound.Playing = true
+					game.Workspace.RadioLobby_Gates.Object_0.Sound.Playing = false
+					UserInputService.MouseIconEnabled = false
+					player.PlayerGui.GatesCamera.Enabled = true
+					playerm.UpperTorso.Anchored = true
+					playerm.Head.Anchored = true
+					player.PlayerGui.GatesCamera.Enabled = false
+			end
+	
+		humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(checkWalkSpeed)
+	
+		checkWalkSpeed()
+	else
+	
+	end
+end;
+task.spawn(C_3);
 
 return G2L["1"], require;
