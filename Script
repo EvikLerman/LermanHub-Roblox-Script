@@ -7,69 +7,192 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 4 | Scripts: 1 | Modules: 0 | Tags: 0
+-- Instances: 4 | Scripts: 2 | Modules: 0 | Tags: 0
 local G2L = {};
 
--- StarterGui.MainGameUI
+-- StarterGui.LermansAdmin
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-G2L["1"]["Name"] = [[MainGameUI]];
+G2L["1"]["Name"] = [[LermansAdmin]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
--- StarterGui.MainGameUI.AC
-G2L["2"] = Instance.new("ImageLabel", G2L["1"]);
-G2L["2"]["BorderSizePixel"] = 0;
-G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["2"]["Image"] = [[rbxassetid://14745368846]];
-G2L["2"]["Size"] = UDim2.new(0.99838, 0, 0.99933, 0);
-G2L["2"]["Visible"] = false;
-G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["2"]["Name"] = [[AC]];
+-- StarterGui.LermansAdmin.Secret
+G2L["2"] = Instance.new("LocalScript", G2L["1"]);
+G2L["2"]["Name"] = [[Secret]];
 
 
--- StarterGui.MainGameUI.AC.LocalScript
-G2L["3"] = Instance.new("LocalScript", G2L["2"]);
+-- StarterGui.LermansAdmin.AdvancedChatFilter
+G2L["3"] = Instance.new("Folder", G2L["1"]);
+G2L["3"]["Name"] = [[AdvancedChatFilter]];
+
+
+-- StarterGui.LermansAdmin.LocalScript
+G2L["4"] = Instance.new("LocalScript", G2L["1"]);
 
 
 
--- StarterGui.MainGameUI.AC.LocalScript.Sound
-G2L["4"] = Instance.new("Sound", G2L["3"]);
-G2L["4"]["Looped"] = true;
-G2L["4"]["RollOffMode"] = Enum.RollOffMode.InverseTapered;
-G2L["4"]["SoundId"] = [[rbxassetid://18564431123]];
-
-
--- StarterGui.MainGameUI.AC.LocalScript
-local function C_3()
-local script = G2L["3"];
-	local ui = script.Parent
-	local player = game.Players.LocalPlayer
-	local playern = player.Name
-	local playerm = game.Workspace:FindFirstChild(playern)
-	local UserInputService = game:GetService("UserInputService")
-	local StarterGui = game:GetService('StarterGui')
+-- StarterGui.LermansAdmin.Secret
+local function C_2()
+local script = G2L["2"];
+	--[=[
+	 d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+	88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+	88      88    88    88            odD'      88      88    88 88ooo88 
+	88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+	88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+	 Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+	]=]
 	
-	if playerm and playerm:FindFirstChild("Humanoid") then
-		local humanoid = playerm.Humanoid
+	-- Instances: 4 | Scripts: 1 | Modules: 0 | Tags: 0
+	local G2L = {};
 	
-		local function checkWalkSpeed()
-					ui.Visible = true
-					script.Sound.Playing = true
-					game.Workspace.RadioLobby_Gates.Object_0.Sound.Playing = false
-					UserInputService.MouseIconEnabled = false
-					player.PlayerGui.GatesCamera.Enabled = true
-					playerm.UpperTorso.Anchored = true
-					playerm.Head.Anchored = true
-					player.PlayerGui.GatesCamera.Enabled = false
+	-- StarterGui.MainGameUI
+	G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+	G2L["1"]["Name"] = [[MainGameUI]];
+	G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+	
+	
+	-- StarterGui.MainGameUI.AC
+	G2L["2"] = Instance.new("ImageLabel", G2L["1"]);
+	G2L["2"]["BorderSizePixel"] = 0;
+	G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	G2L["2"]["Image"] = [[rbxassetid://14745368846]];
+	G2L["2"]["Size"] = UDim2.new(0.99838, 0, 0.99933, 0);
+	G2L["2"]["Visible"] = false;
+	G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	G2L["2"]["Name"] = [[AC]];
+	
+	
+	-- StarterGui.MainGameUI.AC.LocalScript
+	G2L["3"] = Instance.new("LocalScript", G2L["2"]);
+	
+	
+	
+	-- StarterGui.MainGameUI.AC.LocalScript.Sound
+	G2L["4"] = Instance.new("Sound", G2L["3"]);
+	G2L["4"]["Looped"] = true;
+	G2L["4"]["RollOffMode"] = Enum.RollOffMode.InverseTapered;
+	G2L["4"]["SoundId"] = [[rbxassetid://18564431123]];
+	
+	
+	-- StarterGui.MainGameUI.AC.LocalScript
+	local function C_3()
+		local script = G2L["3"];
+		local ui = script.Parent
+		local player = game.Players.LocalPlayer
+		local playern = player.Name
+		local playerm = game.Workspace:FindFirstChild(playern)
+		local UserInputService = game:GetService("UserInputService")
+		local StarterGui = game:GetService('StarterGui')
+	
+		if playerm and playerm:FindFirstChild("Humanoid") then
+			local humanoid = playerm.Humanoid
+	
+			local function checkWalkSpeed()
+				ui.Visible = true
+				script.Sound.Playing = true
+				game.Workspace.RadioLobby_Gates.Object_0.Sound.Playing = false
+				UserInputService.MouseIconEnabled = false
+				player.PlayerGui.GatesCamera.Enabled = true
+				playerm.UpperTorso.Anchored = true
+				playerm.Head.Anchored = true
+				player.PlayerGui.GatesCamera.Enabled = false
 			end
 	
-		humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(checkWalkSpeed)
+			humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(checkWalkSpeed)
 	
-		checkWalkSpeed()
-	else
+			checkWalkSpeed()
+		else
 	
-	end
+		end
+	end;
+	task.spawn(C_3);
+	
+	return G2L["1"], require;
 end;
-task.spawn(C_3);
+task.spawn(C_2);
+-- StarterGui.LermansAdmin.LocalScript
+local function C_4()
+local script = G2L["4"];
+	script.Parent.Secret.Enabled = false
+	local chat = game:GetService("TextChatService")
+	local command = Instance.new("TextChatCommand")
+	command.Parent = chat:WaitForChild("TextChatCommands")
+	command.PrimaryAlias = "/robloxsucks"
+	command.SecondaryAlias = "Bacon"
+	
+	command.Triggered:Connect(function(player)
+		local  ppalyer = player.Name
+		local player = game.Players:WaitForChild(ppalyer)
+		player.PlayerGui.LermansAdmin.Secret.Enabled = true
+	end)
+	
+	local command2 = Instance.new("TextChatCommand")
+	command.Parent = chat:WaitForChild("TextChatCommands")
+	command.PrimaryAlias = "/doorssucks"
+	command.SecondaryAlias = "/console"
+	
+	command.Triggered:Connect(function(player)
+		local  ppalyer = player.Name
+		local player = game.Players:WaitForChild(ppalyer)
+		player.PlayerGui.LermansAdmin.Secret.Enabled = true
+	end)
+	
+	local command = Instance.new("TextChatCommand")
+	command.Parent = chat:WaitForChild("TextChatCommands")
+	command.PrimaryAlias = "/version"
+	command.SecondaryAlias = "Lerman sucks"
+	
+	command.Triggered:Connect(function(player)
+		local  ppalyer = player.Name
+		local player = game.Players:WaitForChild(ppalyer)
+		player.PlayerGui.LermansAdmin.Secret.Enabled = true
+	end)
+	
+	local command = Instance.new("TextChatCommand")
+	command.Parent = chat:WaitForChild("TextChatCommands")
+	command.PrimaryAlias = "/oil"
+	command.SecondaryAlias = "Doors sucks"
+	
+	command.Triggered:Connect(function(player)
+		local  ppalyer = player.Name
+		local player = game.Players:WaitForChild(ppalyer)
+		player.PlayerGui.LermansAdmin.Secret.Enabled = true
+	end)
+	
+	local command = Instance.new("TextChatCommand")
+	command.Parent = chat:WaitForChild("TextChatCommands")
+	command.PrimaryAlias = "/money"
+	command.SecondaryAlias = "Doors sucks"
+	
+	command.Triggered:Connect(function(player)
+		local  ppalyer = player.Name
+		local player = game.Players:WaitForChild(ppalyer)
+		player.PlayerGui.LermansAdmin.Secret.Enabled = true
+	end)
+	
+	local command = Instance.new("TextChatCommand")
+	command.Parent = chat:WaitForChild("TextChatCommands")
+	command.PrimaryAlias = "/ban"
+	command.SecondaryAlias = "Developer sucks"
+	
+	command.Triggered:Connect(function(player)
+		local  ppalyer = player.Name
+		local player = game.Players:WaitForChild(ppalyer)
+		player.PlayerGui.LermansAdmin.Secret.Enabled = true
+	end)
+	
+	local command = Instance.new("TextChatCommand")
+	command.Parent = chat:WaitForChild("TextChatCommands")
+	command.PrimaryAlias = "/robux"
+	command.SecondaryAlias = "You are idiot"
+	
+	command.Triggered:Connect(function(player)
+		local  ppalyer = player.Name
+		local player = game.Players:WaitForChild(ppalyer)
+		player.PlayerGui.LermansAdmin.Secret.Enabled = true
+	end)
+end;
+task.spawn(C_4);
 
 return G2L["1"], require;
